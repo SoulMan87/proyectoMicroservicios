@@ -1,0 +1,10 @@
+insert into products (name, price, created_at) values ('Google Pixel','500', now());
+insert into products (name, price, created_at) values ('IPhone 11','550', now());
+insert into products (name, price, created_at) values ('Samsung Galaxy 20','600', now());
+insert into products (name, price, created_at) values ('Xiaomi Redmi Note','400', now());
+insert into products (name, price, created_at) values ('Moto G10','601', now());
+insert into products (name, price, created_at) values ('Google ChromeBook','1500', now());
+insert into products (name, price, created_at) values ('Google Pixel 5XL','700', now());
+insert into products (name, price, created_at) values ('Microsoft Air','1000', now());
+insert into products (name, price, created_at) values ('MacBook Pro Retina','1500', now());
+insert into products (name, price, created_at) values ('Sony Play Station 5','1000', now());

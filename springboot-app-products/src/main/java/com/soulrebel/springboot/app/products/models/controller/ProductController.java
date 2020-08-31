@@ -20,7 +20,7 @@ public class ProductController {
         return productService.findAllServ();
     }
 
-    @GetMapping("list/{id}")
+    @GetMapping("see/{id}")
     public Product detailProduct(@PathVariable Long id) {
         return productService.findByIdServ(id);
     }
