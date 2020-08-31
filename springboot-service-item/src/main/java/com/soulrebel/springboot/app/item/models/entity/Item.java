@@ -1,4 +1,4 @@
-package com.soulrebel.springboot.app.item.models;
+package com.soulrebel.springboot.app.item.models.entity;
 
 public class Item {
 
@@ -31,6 +31,7 @@ public class Item {
     }
 
     public Double getAmount() {
-        return product.getPrice() * quantity.doubleValue();
+        double value;
+        return  value = product.getPrice() * quantity.doubleValue();
     }
 }
