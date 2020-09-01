@@ -8,6 +8,15 @@ public class Product {
     private String name;
     private Double price;
     private Date createdAt;
+    private Integer port;
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
+    }
 
     public Long getId() {
         return id;
