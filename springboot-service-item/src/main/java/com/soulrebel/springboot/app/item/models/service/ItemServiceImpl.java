@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Service("itemService")
+@Service("itemServiceRestTemplate")
 @RequiredArgsConstructor
 public class ItemServiceImpl implements ItemService {
 
@@ -17,7 +17,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<Item> findAllServ() {
-        List<Product> products = Arrays.asList(Objects.requireNonNull(restClient.getForObject("http://localhost:8001/list", Product[].class)));
+        List<Product> products = Arrays.asList(Objects.requireNonNull(restClient.getForObject("http://product-service/list", Product[].class)));
         return products.stream().map(product -> new Item(product, 1)).collect(Collectors.toList());
     }
 
@@ -25,7 +25,7 @@ public class ItemServiceImpl implements ItemService {
     public Optional<Item> findByIdServ(Long id, Integer quantity) {
         Map<String, String> pathVariables = new HashMap<>();
         pathVariables.put("id", id.toString());
-        Product product = restClient.getForObject("http://localhost:8001/see/{id}", Product.class, pathVariables);
+        Product product = restClient.getForObject("http://product-service/see/{id}", Product.class, pathVariables);
         return Optional.of(new Item(product, quantity));
     }
 }
