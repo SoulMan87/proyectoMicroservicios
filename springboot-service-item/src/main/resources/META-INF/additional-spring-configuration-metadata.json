@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "product-service.ribbon.listOfServers",
+      "type": "java.lang.String",
+      "description": "Description for product-service.ribbon.listOfServers."
+  }
+] }

@@ -3,6 +3,7 @@ package com.soulrebel.springboot.app.item.models.controllers;
 import com.soulrebel.springboot.app.item.models.entity.Item;
 import com.soulrebel.springboot.app.item.models.service.ItemServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ItemController {
 
+    @Qualifier("itemServiceFeign")
     private final ItemServiceImpl itemService;
 
     @GetMapping("/list")
