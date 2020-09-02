@@ -33,10 +33,16 @@ public class ProductController {
     }
 
     @GetMapping("see/{id}")
-    public Product detailProduct(@PathVariable Long id) {
+    public Product detailProduct(@PathVariable Long id) throws Exception {
         Product product = productService.findByIdServ(id);
         //product.setPort(Integer.parseInt(Objects.requireNonNull(env.getProperty("local.server.port"))));
         product.setPort(port);
+
+        /*try {
+            Thread.sleep(2000L);
+        }catch (InterruptedException exception){
+            exception.printStackTrace();
+        }*/
         return product;
     }
 }
