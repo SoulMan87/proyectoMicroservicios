@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/springboot-app-products" />
+    <file type="web" url="file://$PROJECT_DIR$/springboot-service-config-service" />
     <file type="web" url="file://$PROJECT_DIR$/springboot-service-eureka-server" />
     <file type="web" url="file://$PROJECT_DIR$/springboot-service-item" />
     <file type="web" url="file://$PROJECT_DIR$/springboot-service-zuul-service" />
