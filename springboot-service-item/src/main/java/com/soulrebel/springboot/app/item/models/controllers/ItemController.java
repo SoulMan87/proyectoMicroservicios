@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +22,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@RefreshScope
 @RestController
 @RequiredArgsConstructor
 public class ItemController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ItemController.class);
+
+    private final Environment env;
 
     @Qualifier("itemServiceFeign")
     private final ItemServiceImpl itemService;
@@ -43,7 +48,6 @@ public class ItemController {
         return itemService.findByIdServ(id, quantity);
     }
 
-    @SuppressWarnings("unused")
     public Optional<Item> fallbackMethod(Long id, Integer quantity) {
         Item item = new Item();
         Product product = new Product();
@@ -61,6 +65,10 @@ public class ItemController {
         Map<String, String> jsonMap = new HashMap<>();
         jsonMap.put("text", text);
         jsonMap.put("port", port);
+        if (env.getActiveProfiles().length > 0 && env.getActiveProfiles()[0].equals("dev")) {
+            jsonMap.put("autor.name", env.getProperty("configuration.autor.name"));
+            jsonMap.put("autor.email", env.getProperty("configuration.autor.email"));
+        }
         return new ResponseEntity<Map<String, String>>(jsonMap, HttpStatus.OK);
     }
 }
