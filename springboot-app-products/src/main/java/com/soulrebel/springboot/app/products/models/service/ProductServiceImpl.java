@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service("productService")
 @RequiredArgsConstructor
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
 
@@ -24,5 +24,17 @@ public class ProductServiceImpl implements ProductService{
     @Transactional(readOnly = true)
     public Product findByIdServ(Long id) {
         return productRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public Product saveServ(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    @Transactional
+    public void deleteByIdServ(Long id) {
+        productRepository.deleteById(id);
     }
 }

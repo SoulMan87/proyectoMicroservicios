@@ -5,9 +5,8 @@ import com.soulrebel.springboot.app.products.models.service.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -44,5 +43,10 @@ public class ProductController {
             exception.printStackTrace();
         }*/
         return product;
+    }
+    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product createProduct(@RequestBody Product product){
+        return productService.saveServ(product);
     }
 }

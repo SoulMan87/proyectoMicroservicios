@@ -11,8 +11,5 @@
         <module name="springboot-service-item.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="springboot-app-products" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
