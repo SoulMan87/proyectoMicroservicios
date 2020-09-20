@@ -25,10 +25,10 @@ public class ProductController {
 
     @GetMapping("/list")
     public List<Product> listProducts() {
-        return productService.findAllServ( ).stream( ).peek(product -> {
+        return productService.findAllServ().stream().peek(product -> {
             //product.setPort(Integer.parseInt(Objects.requireNonNull(env.getProperty("local.server.port")))))
             product.setPort(port);
-        }).collect(Collectors.toList( ));
+        }).collect(Collectors.toList());
     }
 
     @GetMapping("see/{id}")
@@ -44,9 +44,26 @@ public class ProductController {
         }*/
         return product;
     }
+
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Product createProduct(@RequestBody Product product){
+    public Product createProduct(@RequestBody Product product) {
         return productService.saveServ(product);
+    }
+
+    @PutMapping("/edit/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product edit(@RequestBody Product product, @PathVariable Long id) {
+        Product productDb = productService.findByIdServ(id);
+
+        productDb.setName(product.getName());
+        productDb.setPrice(product.getPrice());
+        return productService.saveServ(productDb);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete (@PathVariable Long id){
+        productService.deleteByIdServ(id);
     }
 }
