@@ -2,6 +2,7 @@ package com.soulrebel.springboot.app.item.models.service;
 
 import com.soulrebel.springboot.app.item.clients.ProductClientRest;
 import com.soulrebel.springboot.app.item.models.entity.Item;
+import com.soulrebel.springboot.app.item.models.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,20 @@ public class ItemServiceFeign implements ItemService {
     @Override
     public Optional<Item> findByIdServ(Long id, Integer quantity) {
         return Optional.of(new Item(productClientRest.detailProduct(id), quantity));
+    }
+
+    @Override
+    public Optional<Product> saveServ(Product product) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Product> updateServ(Product product, Long id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public void deleteServ(Long id) {
+
     }
 }
