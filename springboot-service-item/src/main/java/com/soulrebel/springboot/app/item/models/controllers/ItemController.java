@@ -76,7 +76,7 @@ public class ItemController {
         return itemService.saveServ(product);
     }
 
-    @PutMapping("edit/{id}")
+    @PutMapping("/edit/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Optional<Product> edit(@RequestBody Product product, @PathVariable Long id) {
         return itemService.updateServ(product, id);

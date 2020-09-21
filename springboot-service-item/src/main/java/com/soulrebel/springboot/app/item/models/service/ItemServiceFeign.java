@@ -21,7 +21,10 @@ public class ItemServiceFeign implements ItemService {
     @Override
     public List<Item> findAllServ() {
 
-        return productClientRest.listProducts( ).stream( ).map(product -> new Item(product, 1)).collect(Collectors.toList( ));
+        return productClientRest.listProducts().stream()
+                .map(product ->
+                        new Item(product, 1))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -31,16 +34,16 @@ public class ItemServiceFeign implements ItemService {
 
     @Override
     public Optional<Product> saveServ(Product product) {
-        return Optional.empty();
+        return Optional.of(productClientRest.create(product));
     }
 
     @Override
     public Optional<Product> updateServ(Product product, Long id) {
-        return Optional.empty();
+        return Optional.of(productClientRest.update(product, id));
     }
 
     @Override
     public void deleteServ(Long id) {
-
+        productClientRest.delete(id);
     }
 }

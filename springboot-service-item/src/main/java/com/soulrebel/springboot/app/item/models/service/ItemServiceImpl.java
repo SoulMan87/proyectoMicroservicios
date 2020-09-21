@@ -21,7 +21,9 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> findAllServ() {
         List<Product> products = Arrays.asList(Objects.requireNonNull(restClient.getForObject("http://product-service/list", Product[].class)));
-        return products.stream().map(product -> new Item(product, 1)).collect(Collectors.toList());
+        return products.stream().map(product ->
+                new Item(product, 1))
+                .collect(Collectors.toList());
     }
 
     @Override
