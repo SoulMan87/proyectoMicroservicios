@@ -14,6 +14,16 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/springboot-service-commons" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../ProgramData/chocolatey/lib/gradle/tools/gradle-5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/springboot-service-commons" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/springboot-service-config-service" />
         <option name="modules">
           <set>
